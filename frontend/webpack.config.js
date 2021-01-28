@@ -1,10 +1,13 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   // bundling mode
   mode: "production",
+
+  devtool: "source-map",
 
   // entry files
   entry: "./src/index.tsx",
@@ -29,6 +32,11 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
+  },
+
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()]
   },
 
   plugins: [
