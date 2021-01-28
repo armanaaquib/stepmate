@@ -1,24 +1,38 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  mode: "development",
-  devtool: "source-map",
-  entry: "./src/index.ts",
+  // bundling mode
+  mode: "production",
+
+  // entry files
+  entry: "./src/index.tsx",
+
+  // output bundles (location)
+  output: {
+    path: path.resolve(__dirname, "build"),
+    filename: "app.[fullhash].js"
+  },
+
+  // file resolutions
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"]
+  },
+
+  // loaders
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         use: "ts-loader",
-        include: [path.resolve(__dirname, "src")]
+        exclude: /node_modules/
       }
     ]
   },
-  resolve: {
-    extensions: [".ts", ".js"]
-  },
-  output: {
-    publicPath: "public",
-    filename: "app.js",
-    path: path.resolve(__dirname, "public")
-  }
+
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({ template: "./public/index.html" })
+  ]
 };
