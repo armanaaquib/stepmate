@@ -13,7 +13,7 @@ __backend_standalone() {
 }
 
 __backend_test() {
-  ./gradlew clean test
+  ./gradlew cleanTest test
 }
 
 __service() {

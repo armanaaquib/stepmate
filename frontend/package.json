@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "webpack serve --open --port 3000",
+    "start": "webpack serve --open",
     "build": "webpack",
     "test": "jest --coverage",
     "test:watch": "jest --watchAll"
