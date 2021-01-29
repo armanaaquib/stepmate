@@ -1,34 +1,28 @@
 #!/bin/bash
 
 __frontend_standalone() {
-  cd frontend || exit
-  yarn start
+  yarn --cwd=./frontend install && yarn --cwd=./frontend start
 }
 
 __frontend_test() {
-  cd frontend || exit
-  yarn test
+  yarn --cwd=./frontend install && yarn --cwd=./frontend test
 }
 
 __backend_standalone() {
-  cd backend || exit
   ./gradlew clean bootRun
 }
 
 __backend_test() {
-  cd backend || exit
-  ./gradlew test
+  ./gradlew clean test
 }
 
 __service() {
-  cd frontend || exit
-  yarn build
-  cd ..
+  yarn --cwd=./frontend install && yarn --cwd=./frontend build
 
-  cp ./frontend/build/* ./backend/src/main/resources/static
+  cp -R ./frontend/build/* ./src/main/resources/static
 
   __backend_standalone
 }
 
 CMD=${1:-}
-__$CMD
+__"$CMD"
