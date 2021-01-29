@@ -1,0 +1,34 @@
+#!/bin/bash
+
+__frontend_standalone() {
+  cd frontend || exit
+  yarn start
+}
+
+__frontend_test() {
+  cd frontend || exit
+  yarn test
+}
+
+__backend_standalone() {
+  cd backend || exit
+  ./gradlew clean bootRun
+}
+
+__backend_test() {
+  cd backend || exit
+  ./gradlew test
+}
+
+__service() {
+  cd frontend || exit
+  yarn build
+  cd ..
+
+  cp ./frontend/build/* ./backend/src/main/resources/static
+
+  __backend_standalone
+}
+
+CMD=${1:-}
+__$CMD
