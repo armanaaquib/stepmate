@@ -16,6 +16,16 @@ __backend_test() {
   ./gradlew cleanTest test
 }
 
+__local_install_git_hooks() {
+  if ! type pre-commit >/dev/null; then
+    brew install pre-commit
+  fi
+
+  pre-commit install -f
+
+  echo "Installed git hooks"
+}
+
 __service() {
   yarn --cwd=./frontend install && yarn --cwd=./frontend build
 
