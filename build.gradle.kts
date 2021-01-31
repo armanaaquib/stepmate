@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
     id("org.springframework.boot") version "2.4.2"
@@ -43,4 +44,11 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks {
+    "bootJar"(BootJar::class) {
+        archiveFileName.set("stepmate.jar")
+        mainClass.set("com.stepmate.StepMateApplicationKt")
+    }
 }
