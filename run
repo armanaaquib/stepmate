@@ -18,7 +18,9 @@ __backend_test() {
 
 __local_install_git_hooks() {
   if ! type pre-commit >/dev/null; then
+    echo "Downloading pre-commit..."
     brew install pre-commit
+    echo "...Finish downloading"
   fi
 
   pre-commit install -f
@@ -32,6 +34,15 @@ __service() {
   cp -R ./frontend/build/* ./src/main/resources/static
 
   __backend_standalone
+}
+
+__build_docker_image() {
+  docker build -t stepmate .
+}
+
+__run_container_in_local(){
+  __build_docker_image
+  docker run --publish 8000:8000 stepmate
 }
 
 CMD=${1:-}
