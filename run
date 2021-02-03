@@ -1,21 +1,5 @@
 #!/bin/bash
 
-__frontend_standalone() {
-  yarn --cwd=./frontend install && yarn --cwd=./frontend start
-}
-
-__frontend_test() {
-  yarn --cwd=./frontend install && yarn --cwd=./frontend test
-}
-
-__backend_standalone() {
-  ./gradlew clean bootRun
-}
-
-__backend_test() {
-  ./gradlew cleanTest test
-}
-
 __local_install_git_hooks() {
   if ! type pre-commit >/dev/null; then
     echo "Downloading pre-commit..."
@@ -26,6 +10,61 @@ __local_install_git_hooks() {
   pre-commit install -f
 
   echo "Installed git hooks"
+}
+
+_create_user_and_database() {
+  psql -U $(whoami) -d postgres -c "SELECT rolname FROM pg_roles WHERE rolname='step';" | grep -w 'step' ||
+    psql -U $(whoami) -d postgres -c "CREATE USER step WITH encrypted password 'step';"
+
+  psql -U $(whoami) -d postgres -c "SELECT rolsuper FROM pg_roles WHERE rolname='step';" | grep -w 't' ||
+    psql -U $(whoami) -d postgres -c "ALTER USER step WITH SUPERUSER;"
+
+  psql -l | grep -w stepmate ||
+    psql -U $(whoami) -d postgres -c 'CREATE DATABASE stepmate OWNER step;'
+}
+
+_setup_database_local() {
+  checkPSQL=$(psql --version)
+
+  if [[ ! $? || ${checkPSQL} != *"13"* ]]; then
+    brew install postgresql@13
+    brew link --overwrite --force postgresql@13
+  fi
+
+  brew services start postgresql@13
+
+  if [[ $(brew services list | grep "postgresql") != *"started"* ]]; then
+    sleep 20
+  fi
+
+  _create_user_and_database
+}
+
+_export_local_db_properties() {
+  export DB_PORT=5432
+  export DB_HOST=localhost
+  export DB_USER=step
+  export DB_PASSWORD=step
+  export DB_NAME=stepmate
+}
+
+__backend_standalone() {
+  _setup_database_local
+
+  _export_local_db_properties
+  ./gradlew clean bootRun
+}
+
+__backend_test() {
+  ./gradlew cleanTest test
+}
+
+__frontend_standalone() {
+  yarn --cwd=./frontend install && yarn --cwd=./frontend start
+}
+
+__frontend_test() {
+  yarn --cwd=./frontend install && yarn --cwd=./frontend test
 }
 
 __service() {
@@ -40,7 +79,7 @@ __build_docker_image() {
   docker build -t stepmate .
 }
 
-__run_container_in_local(){
+__run_container_in_local() {
   __build_docker_image
   docker run --publish 8000:8000 stepmate
 }
