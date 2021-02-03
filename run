@@ -79,9 +79,25 @@ __build_docker_image() {
   docker build -t stepmate .
 }
 
-__run_container_in_local() {
+__container_in_local() {
+  docker run \
+    --name stepmate-postgres \
+    --publish 8001:5432 \
+    -e POSTGRES_USER=step \
+    -e POSTGRES_PASSWORD=step \
+    -e POSTGRES_DB=stepmate \
+    --detach \
+    postgres
+
   __build_docker_image
-  docker run --publish 8000:8000 stepmate
+  docker run \
+    --publish 8000:8000 \
+    -e DB_HOST=host.docker.internal \
+    -e DB_PORT=8001 \
+    -e DB_NAME=stepmate \
+    -e DB_USER=step \
+    -e DB_PASSWORD=step \
+    stepmate
 }
 
 CMD=${1:-}

@@ -7,6 +7,7 @@ plugins {
     kotlin("jvm") version "1.4.21"
     kotlin("plugin.spring") version "1.4.21"
     kotlin("plugin.jpa") version "1.4.21"
+    id("com.adarshr.test-logger") version "2.1.1"
 }
 
 group = "com.stepmate"
@@ -45,7 +46,24 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+
+    include("**/*Test.class")
+    include("**/*Tests.class")
 }
+//
+//testlogger {
+//    theme "mocha"
+//    showExceptions true
+//    slowThreshold 500
+//    showSummary true
+//    showPassed true
+//    showSkipped true
+//    showFailed true
+//    showStandardStreams false
+//    showPassedStandardStreams true
+//    showSkippedStandardStreams true
+//    showFailedStandardStreams true
+//}
 
 tasks {
     "bootJar"(BootJar::class) {
