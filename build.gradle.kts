@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
+import com.adarshr.gradle.testlogger.theme.ThemeType
 
 plugins {
     id("org.springframework.boot") version "2.4.2"
@@ -50,20 +51,12 @@ tasks.withType<Test> {
     include("**/*Test.class")
     include("**/*Tests.class")
 }
-//
-//testlogger {
-//    theme "mocha"
-//    showExceptions true
-//    slowThreshold 500
-//    showSummary true
-//    showPassed true
-//    showSkipped true
-//    showFailed true
-//    showStandardStreams false
-//    showPassedStandardStreams true
-//    showSkippedStandardStreams true
-//    showFailedStandardStreams true
-//}
+
+testlogger {
+    theme = ThemeType.MOCHA
+    slowThreshold = 500
+//    showSimpleNames = true
+}
 
 tasks {
     "bootJar"(BootJar::class) {
