@@ -2,4 +2,4 @@ fileignoreconfig:
 - filename: src/main/resources/application.properties
   checksum: 1f524c69ae790012e9fc5f2fc198d4c3b792e48e292f48e2d6ab085a9eaaba87
 - filename: frontend/yarn.lock
-  checksum: 783b157903b8ffbc1e141ccc282340a6a46649d737c8da846415d8f4f787905d
+  checksum: 2b0fdeb86bdd4cef42173d4c4498c540711af01e53599c9eadd2c7bcbd81b479
