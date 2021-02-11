@@ -17,7 +17,7 @@ const NavBar = styled.nav`
 `;
 
 const NavLink = styled.div`
-  font-family: "Cormorant+Garamond";
+  font-family: "Cormorant+Garamond", sans-serif;
   font-weight: 500;
   font-size: 24px;
   color: ${colors.primaryDark};

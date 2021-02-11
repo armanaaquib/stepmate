@@ -64,7 +64,10 @@ __frontend_standalone() {
 }
 
 __frontend_test() {
-  yarn --cwd=./frontend install && yarn --cwd=./frontend test
+  yarn --cwd=./frontend install &&
+    yarn --cwd=./frontend test &&
+    yarn --cwd=./frontend lint &&
+    yarn --cwd=./frontend lint:css
 }
 
 __service() {
