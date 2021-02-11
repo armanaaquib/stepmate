@@ -1,14 +1,14 @@
 import React, { ReactElement } from "react";
 
-import LoadFonts from "./style/LoadFonts";
-import GlobalStyle from "./style/GlobalStyle";
+import { GlobalStyle } from "./App.style";
+
+import Header from "./Header";
 
 const App: React.FC = (): ReactElement => {
   return (
     <>
-      <LoadFonts />
       <GlobalStyle />
-      <div>Welcome to Stepmate</div>
+      <Header />
     </>
   );
 };

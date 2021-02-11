@@ -16,12 +16,12 @@ module.exports = {
   // output bundles (location)
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "app.[fullhash].js"
+    filename: "app.[fullhash].js",
   },
 
   // file resolutions
   resolve: {
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: [".ts", ".tsx", ".js"],
   },
 
   // loaders
@@ -30,22 +30,26 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: "ts-loader",
-        exclude: /node_modules/
-      }
-    ]
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(png|jpe?g|svg)$/,
+        loader: "file-loader",
+      },
+    ],
   },
 
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()]
+    minimizer: [new TerserPlugin()],
   },
 
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({ template: "./public/index.html" })
+    new HtmlWebpackPlugin({ template: "./public/index.html" }),
   ],
 
   devServer: {
-    port: 3000
-  }
+    port: 3000,
+  },
 };

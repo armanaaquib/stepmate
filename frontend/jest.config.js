@@ -2,7 +2,8 @@ module.exports = {
   // Jest transformations -- this adds support for TypeScript
   // using ts-jest
   transform: {
-    "^.+\\.tsx?$": "ts-jest"
+    "^.+\\.tsx?$": "ts-jest",
+    ".+\\.(png|jpg)$": "<rootDir>/fileTransformer.js",
   },
 
   // Runs special logic, such as cleaning up components
@@ -10,7 +11,7 @@ module.exports = {
   // extended assertions to Jest
   setupFilesAfterEnv: [
     // "@testing-library/react/cleanup-after-each",
-    "@testing-library/jest-dom/extend-expect"
+    "@testing-library/jest-dom/extend-expect",
   ],
 
   // Module file extensions for importing
@@ -21,7 +22,7 @@ module.exports = {
       branches: 100,
       functions: 100,
       lines: 100,
-      statements: 100
-    }
-  }
+      statements: 100,
+    },
+  },
 };
