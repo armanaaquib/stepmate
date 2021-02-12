@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 import colors from "./shared/style/colors";
 
 const StyledHeader = styled.div`
@@ -16,19 +17,23 @@ const NavBar = styled.nav`
   align-items: center;
 `;
 
-const NavLink = styled.div`
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
   font-family: "Cormorant+Garamond", sans-serif;
   font-weight: 500;
   font-size: 24px;
   color: ${colors.primaryDark};
-  margin: 0 16px;
+  margin: 0 20px;
+  width: 2.8em;
   cursor: pointer;
-  padding: 1px;
-  transition-property: font-size;
 
   :hover {
-    padding: 0px;
-    font-size: 25px;
+    font-weight: 600;
+  }
+
+  &.active {
+    color: ${colors.primary};
+    font-weight: 600;
   }
 `;
 
@@ -36,7 +41,6 @@ const StyledAvatar = styled.img`
   height: 32px;
   width: 32px;
   margin: 0 20px;
-  cursor: pointer;
 `;
 
 const Icon = styled.div`
@@ -47,6 +51,6 @@ const Icon = styled.div`
   border-radius: 2px;
 `;
 
-export { NavLink, NavBar, StyledAvatar, Icon };
+export { StyledNavLink, NavBar, StyledAvatar, Icon };
 
 export default StyledHeader;
