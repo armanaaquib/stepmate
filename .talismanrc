@@ -1,4 +1,8 @@
 fileignoreconfig:
+- filename: src/main/resources/db/migration/V1__Create_todo_table.sql
+  checksum: 6cb6863d377165e76ecc77adcae03624baf671c81d9a24592d88dcce8be9a667
+- filename: src/main/resources/db/migration/V2__Create_task_table.sql
+  checksum: 2700e556edffb1f64452f68cefaf437f93cd305e1a19305c3e0246eb3c30e93e
 - filename: src/main/resources/application.properties
   checksum: 1f524c69ae790012e9fc5f2fc198d4c3b792e48e292f48e2d6ab085a9eaaba87
 - filename: frontend/yarn.lock
