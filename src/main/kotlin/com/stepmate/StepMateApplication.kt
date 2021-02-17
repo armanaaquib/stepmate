@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class StepMateApplication
+class StepmateApplication
 
 fun main(args: Array<String>) {
-	runApplication<StepMateApplication>(*args)
+	runApplication<StepmateApplication>(*args)
 }

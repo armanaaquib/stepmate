@@ -26,13 +26,14 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-core")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 //	implementation("org.springframework.session:spring-session-core")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     implementation("org.postgresql:postgresql")
     testImplementation("com.h2database:h2")
+    implementation("io.github.microutils:kotlin-logging:1.12.0")
 //	runtimeOnly("io.micrometer:micro meter-registry-prometheus")
 //  testImplementation("org.springframework.security:spring-security-test")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -61,6 +62,6 @@ testlogger {
 tasks {
     "bootJar"(BootJar::class) {
         archiveFileName.set("stepmate.jar")
-        mainClass.set("com.stepmate.StepMateApplicationKt")
+        mainClass.set("com.stepmate.StepmateApplicationKt")
     }
 }
