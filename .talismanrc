@@ -3,6 +3,8 @@ fileignoreconfig:
   checksum: 0dc2c5396e66114336786aaf0b68acf00962c3a0206db9a67d18236e2bd1338a
 - filename: src/main/resources/db/migration/V2__Create_task_table.sql
   checksum: 7f73a16c7a6801b1c98c1d69cadcbfa148afdc9371b563998b91f97e6e56aaab
+- filename: src/test/resources/db_scripts/insert_todo_list.sql
+  checksum: 75ed8dab9fc46833bbfb3311770095af5f882d889ee4ab95a40b8ce66a3aef58
 - filename: src/main/resources/application.properties
   checksum: 1f524c69ae790012e9fc5f2fc198d4c3b792e48e292f48e2d6ab085a9eaaba87
 - filename: frontend/yarn.lock
