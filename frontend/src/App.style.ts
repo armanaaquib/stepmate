@@ -5,10 +5,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
   }
 `;
 
-const Container = styled.div``;
+const Container = styled.div`
+  padding-top: 72px;
+`;
 
 export { GlobalStyle, Container };

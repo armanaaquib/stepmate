@@ -3,7 +3,10 @@ import { NavLink } from "react-router-dom";
 import colors from "./shared/style/colors";
 
 const StyledHeader = styled.div`
-  position: sticky;
+  position: fixed;
+  width: 100%;
+  z-index: 200;
+  background-color: ${colors.primaryLight};
   height: 72px;
   padding: 0 32px;
   display: flex;
@@ -19,17 +22,12 @@ const NavBar = styled.nav`
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  font-family: "Cormorant+Garamond", sans-serif;
+  font-family: "Cormorant+Garamond", serif;
   font-weight: 500;
   font-size: 24px;
   color: ${colors.primaryDark};
   margin: 0 20px;
-  width: 2.8em;
   cursor: pointer;
-
-  :hover {
-    font-weight: 600;
-  }
 
   &.active {
     color: ${colors.primary};

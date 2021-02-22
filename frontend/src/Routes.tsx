@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import Todo from "./todo/components/Todo";
+import TodoApp from "./todo/TodoApp";
 
 const Routes = (): ReactElement => (
   <Switch>
@@ -9,7 +9,7 @@ const Routes = (): ReactElement => (
       <Redirect to="/todo" />
     </Route>
     <Route path="/todo">
-      <Todo />
+      <TodoApp />
     </Route>
   </Switch>
 );
