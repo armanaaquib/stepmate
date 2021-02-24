@@ -12,7 +12,7 @@ describe("<Routes />", () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByTestId("todo-app")).toBeInTheDocument();
+    expect(screen.getByTestId("todo-list")).toBeInTheDocument();
   });
 
   it("should render todo app on /todo path", () => {
@@ -22,6 +22,6 @@ describe("<Routes />", () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByTestId("todo-app")).toBeInTheDocument();
+    expect(screen.getByTestId("todo-list")).toBeInTheDocument();
   });
 });

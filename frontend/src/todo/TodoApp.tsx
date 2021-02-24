@@ -1,11 +1,12 @@
 import React, { ReactElement } from "react";
 
+import TodoListProvider from "./context/TodoListProvider";
 import TodoCardList from "./components/TodoCardList";
 
 const TodoApp = (): ReactElement => (
-  <div data-tesid="todo-app">
+  <TodoListProvider>
     <TodoCardList />
-  </div>
+  </TodoListProvider>
 );
 
 export default TodoApp;

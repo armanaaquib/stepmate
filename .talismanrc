@@ -8,6 +8,6 @@ fileignoreconfig:
 - filename: src/main/resources/application.properties
   checksum: 1f524c69ae790012e9fc5f2fc198d4c3b792e48e292f48e2d6ab085a9eaaba87
 - filename: frontend/yarn.lock
-  checksum: c7a9fadb91deef6e5a40182aba1a51dbfcecd215de183617369a89040ec2ea10
+  checksum: d32709a94e858782a64c5065db8e92a391f90f106a25671724f11d6f6d9441a6
 - filename: frontend/src/todo/components/style/Task.style.ts
   checksum: 7d20c28c9e768dfc605fee251065a9a76ea28f89c6102f0b07471e6c44890b27
