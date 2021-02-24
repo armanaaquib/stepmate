@@ -6,10 +6,12 @@ const doRequest = <T>(config: AxiosRequestConfig): Promise<T> => {
   return new Promise<T>((resolve, reject) => {
     axios
       .request(config)
-      .then((response: AxiosResponse) => resolve(response.data as T))
+      .then((response: AxiosResponse) => {
+        resolve(response.data.data as T);
+      })
       .catch((error: AxiosError) => {
         if (error.response) {
-          reject(error.response.data as ResponseErrors);
+          reject(error.response.data.errors as ResponseErrors);
         }
         reject([]);
       });
