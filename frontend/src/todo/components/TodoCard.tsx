@@ -6,14 +6,17 @@ import StyledTodoCard, {
   HeaderText,
   TodoBody,
 } from "./style/TodoCard.style";
+import { Todo } from "../context/reducers/todoListReducer";
 
-const TodoCard = (): React.ReactElement => (
+type TodoCardProps = { entry: Todo };
+
+const TodoCard = ({ entry }: TodoCardProps): React.ReactElement => (
   <StyledTodoCard>
     <TodoHeader>
-      <HeaderText></HeaderText>
+      <HeaderText>{entry.title}</HeaderText>
     </TodoHeader>
     <TodoBody>
-      <Tasks />
+      <Tasks entries={entry.tasks} />
     </TodoBody>
   </StyledTodoCard>
 );

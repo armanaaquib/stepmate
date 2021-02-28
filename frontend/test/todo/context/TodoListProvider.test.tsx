@@ -19,7 +19,7 @@ describe("<TodoListProvider />", () => {
       const { state, actions } = useContext(TodoListContext);
       actions.action();
 
-      expect(state).toStrictEqual({ error: false, data: [] });
+      expect(state).toStrictEqual({ error: false, loading: false, data: [] });
 
       return <></>;
     };

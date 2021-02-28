@@ -20,14 +20,30 @@ describe("todoListActions", () => {
       mockDispatch.mockReset();
     });
 
-    it("should call dispatch with LOAD_TODO_LIST as action type and todoList as payload", async () => {
+    it("should call dispatch with actions when todo list is fetched successfully", async () => {
       mockedGetTodoList.mockResolvedValue([]);
 
       await actions.loadTodoList();
 
       expect(mockDispatch).toHaveBeenCalledWith({
+        type: ActionTypes.START_LOADING_TODO_LIST,
+      });
+      expect(mockDispatch).toHaveBeenCalledWith({
         type: ActionTypes.LOAD_TODO_LIST,
         payload: [],
+      });
+    });
+
+    it("should call dispatch with actions when todo list is not fetched", async () => {
+      mockedGetTodoList.mockRejectedValue([]);
+
+      await actions.loadTodoList();
+
+      expect(mockDispatch).toHaveBeenCalledWith({
+        type: ActionTypes.START_LOADING_TODO_LIST,
+      });
+      expect(mockDispatch).toHaveBeenCalledWith({
+        type: ActionTypes.ERROR_IN_LOADING_TODO_LIST,
       });
     });
   });

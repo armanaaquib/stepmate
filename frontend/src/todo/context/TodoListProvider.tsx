@@ -11,14 +11,14 @@ import todoListActions, { Action } from "./actions/todoListActions";
 
 type ContextType = {
   state: State;
-  actions: Record<string, () => void>;
+  actions: Record<string, () => Promise<void>>;
 };
 
 type TodoListProviderProps = {
   children: ReactNode;
 };
 
-const initialState = { error: false, data: [] };
+const initialState = { error: false, loading: false, data: [] };
 
 const TodoListContext = createContext<ContextType>({
   state: initialState,

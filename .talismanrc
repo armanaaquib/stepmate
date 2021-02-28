@@ -7,7 +7,11 @@ fileignoreconfig:
   checksum: 75ed8dab9fc46833bbfb3311770095af5f882d889ee4ab95a40b8ce66a3aef58
 - filename: src/main/resources/application.properties
   checksum: 1f524c69ae790012e9fc5f2fc198d4c3b792e48e292f48e2d6ab085a9eaaba87
-- filename: frontend/yarn.lock
-  checksum: d32709a94e858782a64c5065db8e92a391f90f106a25671724f11d6f6d9441a6
 - filename: frontend/src/todo/components/style/Task.style.ts
   checksum: 7d20c28c9e768dfc605fee251065a9a76ea28f89c6102f0b07471e6c44890b27
+- filename: frontend/yarn.lock
+  checksum: c1d99fd1f941ca1b7990cbec13e8e44b402412de7015d6921a1b529e43b919fa
+- filename: frontend/src/todo/components/TodoCardList.tsx
+  checksum: 6d6f2260877e42e7b2d3280e7cf771eddfea3b38c28d837c4080f022049a060c
+- filename: frontend/src/todo/components/Tasks.tsx
+  checksum: 5f6a2f2a0146e1e4ee22522ace23225e88acde0b37d454a0e6fcfcb8e39f7a4f

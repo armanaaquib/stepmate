@@ -12,6 +12,7 @@ module.exports = {
   setupFilesAfterEnv: [
     // "@testing-library/react/cleanup-after-each",
     "@testing-library/jest-dom/extend-expect",
+    "jest-styled-components",
   ],
 
   // Module file extensions for importing

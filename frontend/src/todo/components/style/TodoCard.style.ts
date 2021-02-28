@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const StyledTodoCard = styled.div`
   min-height: 80px;
+  min-width: 200px;
   max-width: 360px;
   padding: 12px 8px 12px 12px;
   margin: 16px;
