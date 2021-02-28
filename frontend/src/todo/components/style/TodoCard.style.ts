@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "../../../shared/style/colors";
 
 const StyledTodoCard = styled.div`
   min-height: 80px;
@@ -19,6 +20,7 @@ const HeaderText = styled.div`
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
+  color: ${colors.primaryDark};
 `;
 
 const TodoBody = styled.div`

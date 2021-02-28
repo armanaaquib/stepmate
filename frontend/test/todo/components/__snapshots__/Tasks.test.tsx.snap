@@ -81,8 +81,10 @@ Object {
   margin-bottom: 8px;
   background-color: #ffffff;
   color: #000000;
-  border-left: 4px solid #f2f2f2;
-  border-radius: 2px;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #323232;
+  border-radius: 4px;
   padding: 4px;
 }
 
@@ -92,14 +94,17 @@ Object {
   font-weight: 400;
   margin-bottom: 8px;
   background-color: #ffffff;
-  color: #333333;
-  border-left: 4px solid #00BCCD;
-  border-radius: 2px;
+  color: #323232;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #00BCCD;
+  border-radius: 4px;
   padding: 4px;
 }
 
 .c1 {
-  border: 0.1px solid #ffffff;
+  height: 0.5px;
+  background-color: #ffffff;
   border-radius: 5px;
   margin: 12px 0;
 }
@@ -138,21 +143,21 @@ Object {
       data-testid="tasks"
     >
       <div
-        class="sc-bdfBwQ fBzmTp"
+        class="sc-bdfBwQ hUQhyD"
       >
         task text
       </div>
       <div
-        class="sc-bdfBwQ fBzmTp"
+        class="sc-bdfBwQ hUQhyD"
       >
         task text 2
       </div>
       <div
-        class="sc-dlfnbm cWhrhl"
+        class="sc-dlfnbm fZVFmy"
         data-testid="tasks-divider"
       />
       <div
-        class="sc-bdfBwQ BxbVf"
+        class="sc-bdfBwQ knBUnh"
       >
         task text
       </div>

@@ -6,7 +6,7 @@ const StyledHeader = styled.div`
   position: fixed;
   width: 100%;
   z-index: 200;
-  background-color: ${colors.primaryLight};
+  background-color: ${colors.secondaryLight};
   height: 72px;
   padding: 0 32px;
   display: flex;

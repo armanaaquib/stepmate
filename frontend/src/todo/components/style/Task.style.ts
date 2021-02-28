@@ -3,8 +3,8 @@ import styled from "styled-components";
 import colors from "../../../shared/style/colors";
 
 const statusColors: Record<string, string> = {
-  TODO: "#f2f2f2",
-  IN_PROGRESS: "#EEA940",
+  TODO: colors.secondaryDark,
+  IN_PROGRESS: colors.progress,
   DONE: colors.primary,
 };
 
@@ -23,9 +23,10 @@ const StyledTask = styled.div`
   margin-bottom: 8px;
   background-color: ${colors.primaryLight};
   color: ${({ status }: StyledTaskProps) => textColors[status]};
-  border-left: 4px solid
-    ${({ status }: StyledTaskProps) => statusColors[status]};
-  border-radius: 2px;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: ${({ status }: StyledTaskProps) => statusColors[status]};
+  border-radius: 4px;
   padding: 4px;
 `;
 

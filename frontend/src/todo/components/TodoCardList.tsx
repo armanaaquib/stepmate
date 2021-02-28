@@ -15,7 +15,11 @@ const TodoCardList = (): React.ReactElement => {
   }, []);
 
   if (error) {
-    return <div>Error in loading todo cards, Please refreseh the page</div>;
+    return (
+      <StyledTodoCardList>
+        Error in loading todo cards, Please refreseh the page
+      </StyledTodoCardList>
+    );
   }
 
   return (

@@ -10,8 +10,10 @@ Object {
   margin-bottom: 8px;
   background-color: #ffffff;
   color: #000000;
-  border-left: 4px solid #EEA940;
-  border-radius: 2px;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #f08a5d;
+  border-radius: 4px;
   padding: 4px;
 }
 
@@ -34,6 +36,7 @@ Object {
   font-size: 20px;
   font-family: "Montserrat",sans-serif;
   font-weight: 500;
+  color: #000000;
 }
 
 .c4 {
@@ -124,7 +127,7 @@ Object {
           class="sc-eCssSg dRQaNU"
         >
           <div
-            class="sc-jSgupP ciFcwG"
+            class="sc-jSgupP bzXidY"
           >
             todo header
           </div>
@@ -137,7 +140,7 @@ Object {
             data-testid="tasks"
           >
             <div
-              class="sc-bdfBwQ jLryXN"
+              class="sc-bdfBwQ dRWfCs"
             >
               task
             </div>
@@ -151,7 +154,7 @@ Object {
           class="sc-eCssSg dRQaNU"
         >
           <div
-            class="sc-jSgupP ciFcwG"
+            class="sc-jSgupP bzXidY"
           >
             todo header
           </div>

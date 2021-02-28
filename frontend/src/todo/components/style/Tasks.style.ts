@@ -5,7 +5,8 @@ import colors from "../../../shared/style/colors";
 const StyledTasks = styled.div``;
 
 const TasksDivider = styled.div`
-  border: 0.1px solid ${colors.primaryLight};
+  height: 0.5px;
+  background-color: ${colors.primaryLight};
   border-radius: 5px;
   margin: 12px 0;
 `;
