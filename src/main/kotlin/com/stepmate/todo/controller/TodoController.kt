@@ -1,6 +1,7 @@
 package com.stepmate.todo.controller
 
 import com.stepmate.shared.StepmateResponse
+import com.stepmate.todo.model.Todo
 import com.stepmate.todo.service.TodoService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -9,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/todo")
-class TodoController(val todoService: TodoService) {
+class TodoController(private val todoService: TodoService) {
 
     @GetMapping("/")
-    fun getTodoList(): ResponseEntity<StepmateResponse> {
+    fun getTodoList(): ResponseEntity<StepmateResponse<List<Todo>>> {
         val userId = 1L     //TODO Use fix userId 1 till we decide how are we going to get it
 
         val todoList = todoService.getTodoList(userId)

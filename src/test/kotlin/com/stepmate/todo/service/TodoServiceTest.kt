@@ -5,21 +5,28 @@ import com.stepmate.todo.model.TaskStatus
 import com.stepmate.todo.model.Todo
 import com.stepmate.todo.repository.TodoRepository
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
 import org.mockito.BDDMockito.then
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
+import java.time.LocalDateTime
 
 @SpringBootTest
 internal class TodoServiceTest {
 
+    @MockBean
+    lateinit var todoRepository: TodoRepository
+
     @Autowired
     lateinit var todoService: TodoService
 
-    @MockBean
-    lateinit var todoRepository: TodoRepository
+    @AfterEach
+    internal fun tearDown() {
+        then(todoRepository).shouldHaveNoMoreInteractions()
+    }
 
     @Test
     fun `should give all todo list`() {

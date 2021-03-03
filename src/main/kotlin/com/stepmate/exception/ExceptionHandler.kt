@@ -17,7 +17,7 @@ class ExceptionHandler : ResponseEntityExceptionHandler() {
     companion object : KLogging()
 
     @ExceptionHandler(Exception::class)
-    fun internalServerErrorHandler(exception: Exception): ResponseEntity<StepmateResponse> {
+    fun internalServerErrorHandler(exception: Exception): ResponseEntity<StepmateResponse<Nothing>> {
         val mostSpecificCause = NestedExceptionUtils.getMostSpecificCause(exception)
 
         logger.error(ErrorType.INTERNAL_SERVER_ERROR.message, mostSpecificCause)
