@@ -4,11 +4,18 @@ import todoListReducer, {
 } from "../../../../src/todo/context/reducers/todoListReducer";
 
 describe("todoListReducer", () => {
-  it("should start loading todo list", () => {
+  it("should start loading", () => {
     const state = { error: false, loading: false, data: [] };
     expect(
-      todoListReducer(state, { type: ActionTypes.START_LOADING_TODO_LIST })
+      todoListReducer(state, { type: ActionTypes.START_LOADING })
     ).toStrictEqual({ ...state, loading: true });
+  });
+
+  it("should stop loading", () => {
+    const state = { error: false, loading: true, data: [] };
+    expect(
+      todoListReducer(state, { type: ActionTypes.STOP_LOADING })
+    ).toStrictEqual({ ...state, loading: false });
   });
 
   it("should load todo list", () => {
@@ -40,7 +47,7 @@ describe("todoListReducer", () => {
     ];
     expect(
       todoListReducer(
-        { error: false, loading: true, data: [] },
+        { error: true, loading: false, data: [] },
         { type: ActionTypes.LOAD_TODO_LIST, payload: todoList }
       )
     ).toStrictEqual({ error: false, loading: false, data: todoList });
@@ -49,7 +56,7 @@ describe("todoListReducer", () => {
   it("should update error in loading todo list", () => {
     const state = {
       error: false,
-      loading: true,
+      loading: false,
       data: [
         {
           id: 2,

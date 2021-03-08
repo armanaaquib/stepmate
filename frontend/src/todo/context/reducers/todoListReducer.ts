@@ -24,16 +24,20 @@ type State = { error: boolean; loading: boolean; data: Todo[] };
 
 const todoListReducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case ActionTypes.START_LOADING_TODO_LIST: {
+    case ActionTypes.START_LOADING: {
       return { ...state, loading: true };
     }
 
+    case ActionTypes.STOP_LOADING: {
+      return { ...state, loading: false };
+    }
+
     case ActionTypes.LOAD_TODO_LIST: {
-      return { ...state, error: false, loading: false, data: action.payload };
+      return { ...state, error: false, data: action.payload };
     }
 
     case ActionTypes.ERROR_IN_LOADING_TODO_LIST: {
-      return { ...state, error: true, loading: false, data: [] };
+      return { ...state, error: true, data: [] };
     }
   }
 };

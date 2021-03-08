@@ -26,11 +26,14 @@ describe("todoListActions", () => {
       await actions.loadTodoList();
 
       expect(mockDispatch).toHaveBeenCalledWith({
-        type: ActionTypes.START_LOADING_TODO_LIST,
+        type: ActionTypes.START_LOADING,
       });
       expect(mockDispatch).toHaveBeenCalledWith({
         type: ActionTypes.LOAD_TODO_LIST,
         payload: [],
+      });
+      expect(mockDispatch).toHaveBeenCalledWith({
+        type: ActionTypes.STOP_LOADING,
       });
     });
 
@@ -40,10 +43,13 @@ describe("todoListActions", () => {
       await actions.loadTodoList();
 
       expect(mockDispatch).toHaveBeenCalledWith({
-        type: ActionTypes.START_LOADING_TODO_LIST,
+        type: ActionTypes.START_LOADING,
       });
       expect(mockDispatch).toHaveBeenCalledWith({
         type: ActionTypes.ERROR_IN_LOADING_TODO_LIST,
+      });
+      expect(mockDispatch).toHaveBeenCalledWith({
+        type: ActionTypes.STOP_LOADING,
       });
     });
   });
