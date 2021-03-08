@@ -22,7 +22,7 @@ data class Todo(
 
     @OneToMany(mappedBy = "todo", fetch = FetchType.EAGER, cascade = [CascadeType.ALL])
     @OrderBy("created_at ASC")
-    val tasks: MutableList<Task>
+    var tasks: List<Task> = emptyList()
 
 ) : Serializable {
 

@@ -19,13 +19,12 @@ data class Task(
     var text: String,
 
     @Enumerated(EnumType.STRING)
-    var status: TaskStatus,
+    var status: TaskStatus = TaskStatus.TODO,
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "todo_id", referencedColumnName = "id")
     @JsonIgnore
-    val todo: Todo
-
+    val todo: Todo?
 
 ) : Serializable {
 

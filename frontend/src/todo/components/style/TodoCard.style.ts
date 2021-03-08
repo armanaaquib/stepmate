@@ -4,9 +4,9 @@ import colors from "../../../shared/style/colors";
 const StyledTodoCard = styled.div`
   min-height: 80px;
   min-width: 200px;
-  max-width: 360px;
+  max-width: 320px;
   padding: 12px 8px 12px 12px;
-  margin: 16px;
+  margin: 32px 16px;
   background-color: rgba(0, 188, 205, 0.2);
   border-radius: 8px;
   box-shadow: 0 0 4px 2px rgba(0, 188, 205, 0.3);
