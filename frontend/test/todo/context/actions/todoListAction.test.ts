@@ -1,8 +1,8 @@
 import { mocked } from "ts-jest/utils";
 
-import ActionTypes from "../../../../src/todo/context/actions/actionsTypes";
 import todoListActions from "../../../../src/todo/context/actions/todoListActions";
 import { getTodoList } from "../../../../src/todo/context/actions/todoListApi";
+import ActionTypes from "../../../../src/todo/context/types/actionsTypes";
 
 jest.mock("../../../../src/todo/context/actions/todoListApi");
 const mockedGetTodoList = mocked(getTodoList);

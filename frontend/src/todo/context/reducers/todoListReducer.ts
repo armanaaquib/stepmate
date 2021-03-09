@@ -1,26 +1,6 @@
-import ActionTypes from "../actions/actionsTypes";
-import { Action } from "../actions/todoListActions";
-
-type TaskStatus = "TODO" | "IN_PROGRESS" | "DONE";
-
-type TaskType = {
-  id: number;
-  text: string;
-  status: TaskStatus;
-  createdAt: string;
-  modifiedAt: string;
-};
-
-type Todo = {
-  id: number;
-  title: string;
-  createdAt: string;
-  modifiedAt: string;
-  userId: number;
-  tasks: TaskType[];
-};
-
-type State = { error: boolean; loading: boolean; data: Todo[] };
+import State from "../types/state";
+import Action from "../types/action";
+import ActionTypes from "../types/actionsTypes";
 
 const todoListReducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -39,8 +19,11 @@ const todoListReducer = (state: State, action: Action): State => {
     case ActionTypes.ERROR_IN_LOADING_TODO_LIST: {
       return { ...state, error: true, data: [] };
     }
+
+    case ActionTypes.ADD_TODO: {
+      return { ...state, data: [action.payload, ...state.data] };
+    }
   }
 };
 
-export { State, Todo, TaskType };
 export default todoListReducer;

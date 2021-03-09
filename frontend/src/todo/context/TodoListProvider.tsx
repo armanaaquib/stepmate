@@ -6,8 +6,10 @@ import React, {
   useReducer,
 } from "react";
 
-import todoListReducer, { State } from "./reducers/todoListReducer";
-import todoListActions, { Action } from "./actions/todoListActions";
+import todoListReducer from "./reducers/todoListReducer";
+import todoListActions from "./actions/todoListActions";
+import State from "./types/state";
+import Action from "./types/action";
 
 type ContextType = {
   state: State;

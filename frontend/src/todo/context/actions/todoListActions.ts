@@ -1,12 +1,6 @@
-import ActionTypes from "./actionsTypes";
-import { Todo } from "../reducers/todoListReducer";
 import { getTodoList } from "../actions/todoListApi";
-
-type Action =
-  | { type: ActionTypes.START_LOADING }
-  | { type: ActionTypes.STOP_LOADING }
-  | { type: ActionTypes.LOAD_TODO_LIST; payload: Todo[] }
-  | { type: ActionTypes.ERROR_IN_LOADING_TODO_LIST };
+import ActionTypes from "../types/actionsTypes";
+import Action from "../types/action";
 
 const todoListActions = (
   dispatch: React.Dispatch<Action>
@@ -27,5 +21,4 @@ const todoListActions = (
   };
 };
 
-export { Action };
 export default todoListActions;

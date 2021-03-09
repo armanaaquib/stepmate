@@ -1,7 +1,6 @@
-import ActionTypes from "../../../../src/todo/context/actions/actionsTypes";
-import todoListReducer, {
-  Todo,
-} from "../../../../src/todo/context/reducers/todoListReducer";
+import todoListReducer from "../../../../src/todo/context/reducers/todoListReducer";
+import ActionTypes from "../../../../src/todo/context/types/actionsTypes";
+import Todo from "../../../../src/todo/context/types/todo";
 
 describe("todoListReducer", () => {
   it("should start loading", () => {
@@ -71,5 +70,48 @@ describe("todoListReducer", () => {
     expect(
       todoListReducer(state, { type: ActionTypes.ERROR_IN_LOADING_TODO_LIST })
     ).toStrictEqual({ ...state, error: true, loading: false, data: [] });
+  });
+
+  it("should add todo in the beginning", () => {
+    const state = {
+      error: false,
+      loading: false,
+      data: [
+        {
+          id: 1,
+          title: "todo1",
+          createdAt: "2021-02-14T00:00:00",
+          modifiedAt: "2021-02-14T00:00:00",
+          userId: 1,
+          tasks: [],
+        },
+      ],
+    };
+    const todo: Todo = {
+      id: 2,
+      title: "todo2",
+      createdAt: "2021-02-14T00:00:00",
+      modifiedAt: "2021-02-14T00:00:00",
+      userId: 1,
+      tasks: [
+        {
+          id: 1,
+          text: "todo2 text1",
+          status: "TODO",
+          createdAt: "2021-02-14T00:00:00",
+          modifiedAt: "2021-02-14T00:00:00",
+        },
+      ],
+    };
+
+    expect(
+      todoListReducer(state, {
+        type: ActionTypes.ADD_TODO,
+        payload: todo,
+      })
+    ).toStrictEqual({
+      ...state,
+      data: [todo, ...state.data],
+    });
   });
 });

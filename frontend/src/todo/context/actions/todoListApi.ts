@@ -1,5 +1,5 @@
 import doRequest from "../../../shared/api/doRequest";
-import { Todo } from "../reducers/todoListReducer";
+import Todo from "../types/todo";
 
 const TODO_URL = "/api/todo/";
 
