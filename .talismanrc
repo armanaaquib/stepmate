@@ -14,4 +14,4 @@ fileignoreconfig:
 - filename: frontend/src/todo/components/TodoCardList.tsx
   checksum: 6d6f2260877e42e7b2d3280e7cf771eddfea3b38c28d837c4080f022049a060c
 - filename: frontend/src/todo/components/Tasks.tsx
-  checksum: 5f6a2f2a0146e1e4ee22522ace23225e88acde0b37d454a0e6fcfcb8e39f7a4f
+  checksum: 09eabda72926cc8706c3f6d19a0c0ca0c4bf6cb5ba1abfe5081461499f06b598

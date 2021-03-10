@@ -8,4 +8,9 @@ type Task = {
   modifiedAt: string;
 };
 
+type TaskRequest = {
+  text: string;
+};
+
+export { TaskRequest };
 export default Task;

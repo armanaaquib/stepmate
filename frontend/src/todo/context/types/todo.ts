@@ -1,4 +1,4 @@
-import Task from "./task";
+import Task, { TaskRequest } from "./task";
 
 type Todo = {
   id: number;
@@ -9,4 +9,10 @@ type Todo = {
   tasks: Task[];
 };
 
+type TodoRequest = {
+  title: string;
+  tasks: TaskRequest[];
+};
+
+export { TodoRequest };
 export default Todo;

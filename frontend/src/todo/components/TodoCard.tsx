@@ -6,7 +6,7 @@ import StyledTodoCard, {
   HeaderText,
   TodoBody,
 } from "./style/TodoCard.style";
-import { Todo } from "../context/reducers/todoListReducer";
+import Todo from "../context/types/todo";
 
 type TodoCardProps = { entry: Todo };
 

@@ -1,19 +1,19 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
-import Task from "../../../src/todo/components/Task";
-import { TaskType } from "../../../src/todo/context/reducers/todoListReducer";
+import TaskContainer from "../../../src/todo/components/TaskContainer";
+import Task from "../../../src/todo/context/types/task";
 
 describe("<Task />", () => {
   it("should render task with text", () => {
-    const entry: TaskType = {
+    const entry: Task = {
       id: 1,
       text: "task text",
       status: "TODO",
       createdAt: "",
       modifiedAt: "",
     };
-    render(<Task entry={entry} />);
+    render(<TaskContainer entry={entry} />);
 
     expect(screen.getByText(entry.text)).toBeInTheDocument();
   });

@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 
 import TodoCard from "../../../src/todo/components/TodoCard";
-import { Todo } from "../../../src/todo/context/reducers/todoListReducer";
+import Todo from "../../../src/todo/context/types/todo";
 
 describe("<TodoCard />", () => {
   it("should render todo header", () => {

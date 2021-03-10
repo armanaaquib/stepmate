@@ -1,10 +1,10 @@
 import React from "react";
 
-import Task from "./Task";
+import TaskContainer from "./TaskContainer";
 import StyledTasks, { TasksDivider } from "./style/Tasks.style";
-import { TaskType } from "../context/reducers/todoListReducer";
+import Task from "../context/types/task";
 
-type TasksProps = { entries: TaskType[] };
+type TasksProps = { entries: Task[] };
 
 const Tasks = ({ entries }: TasksProps): React.ReactElement => {
   const unDoneTasks = entries.filter((task) => task.status !== "DONE");
@@ -13,13 +13,13 @@ const Tasks = ({ entries }: TasksProps): React.ReactElement => {
   return (
     <StyledTasks data-testid="tasks">
       {unDoneTasks.map((task) => (
-        <Task key={task.id} entry={task} />
+        <TaskContainer key={task.id} entry={task} />
       ))}
       {doneTasks.length > 0 ? (
         <TasksDivider data-testid="tasks-divider" />
       ) : null}
       {doneTasks.map((task) => (
-        <Task key={task.id} entry={task} />
+        <TaskContainer key={task.id} entry={task} />
       ))}
     </StyledTasks>
   );

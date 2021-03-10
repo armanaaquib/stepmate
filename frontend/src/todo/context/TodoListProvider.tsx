@@ -10,10 +10,11 @@ import todoListReducer from "./reducers/todoListReducer";
 import todoListActions from "./actions/todoListActions";
 import State from "./types/state";
 import Action from "./types/action";
+import Actions from "./types/actions";
 
 type ContextType = {
   state: State;
-  actions: Record<string, () => Promise<void>>;
+  actions: Actions;
 };
 
 type TodoListProviderProps = {

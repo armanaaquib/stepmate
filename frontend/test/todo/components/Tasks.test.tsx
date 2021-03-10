@@ -2,10 +2,10 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 
 import Tasks from "../../../src/todo/components/Tasks";
-import { TaskType } from "../../../src/todo/context/reducers/todoListReducer";
+import Task from "../../../src/todo/context/types/task";
 
 describe("<Tasks />", () => {
-  const entries: TaskType[] = [
+  const entries: Task[] = [
     {
       id: 1,
       text: "task text",
@@ -29,7 +29,7 @@ describe("<Tasks />", () => {
   });
 
   it("should render tasks divider if there are done tasks", () => {
-    const newEntries: TaskType[] = [
+    const newEntries: Task[] = [
       ...entries,
       { ...entries[0], id: 3, status: "DONE" },
     ];
@@ -39,7 +39,7 @@ describe("<Tasks />", () => {
   });
 
   it("should render tasks", () => {
-    const newEntries: TaskType[] = [
+    const newEntries: Task[] = [
       ...entries,
       { ...entries[0], id: 3, status: "DONE" },
     ];

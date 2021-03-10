@@ -8,7 +8,7 @@
   "scripts": {
     "start": "webpack serve --open",
     "build": "webpack",
-    "test": "jest --coverage",
+    "test": "jest --coverage --no-cache",
     "test:watch": "jest --watchAll",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "lint:css": "stylelint '*/**/*.{js,ts,tsx}'"

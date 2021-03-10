@@ -3,10 +3,8 @@ import { render, RenderResult, screen } from "@testing-library/react";
 
 import TodoCardList from "../../../src/todo/components/TodoCardList";
 import { TodoListContext } from "../../../src/todo/context/TodoListProvider";
-import {
-  State,
-  Todo,
-} from "../../../src/todo/context/reducers/todoListReducer";
+import State from "../../../src/todo/context/types/state";
+import Todo from "../../../src/todo/context/types/todo";
 
 describe("<TodoCardList />", () => {
   const renderTodoCardList = (
